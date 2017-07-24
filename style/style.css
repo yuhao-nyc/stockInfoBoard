@@ -2,3 +2,11 @@
   margin: 40px 0 0;
   padding-bottom: 20px;
 }
+
+.card {
+  margin-bottom: 1.25rem;
+}
+
+.card-block {
+  padding: 1rem !important;
+}
