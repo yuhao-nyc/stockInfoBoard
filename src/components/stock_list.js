@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { fetch_data } from '../actions';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
 import StockDetail from './stock_detail';
 
 class StockList extends Component {
@@ -13,16 +12,26 @@ class StockList extends Component {
     return _.map(this.props.stocks, data => {
         return (
           <div className="card" key={data.id}>
-            <Link to="/stocks/:id" component={StockDetail}>
               <div className='row card-block'>
-                <div className='col-sm-6'>
+                <div className='col-sm-2'>
                   {data.symbol}
                 </div>
-                <div className='col-sm-6 pull-right'>
-                  {data.price}
+                <div className='col-sm-2'>
+                  <span className="info-title">Open Price:</span> {data.price}
+                </div>
+                <div className='col-sm-2'>
+                  <span className="info-title">High Price:</span> {data.high}
+                </div>
+                <div className='col-sm-2'>
+                  <span className="info-title">Low Price:</span> {data.low}
+                </div>
+                <div className='col-sm-2'>
+                  <span className="info-title">Volume:</span> {data.volume}
+                </div>
+                <div className='col-sm-2'>
+                  <span className="badge badge-default">{data.volatility}</span>
                 </div>
               </div>
-            </Link>
           </div>
         )
       }
